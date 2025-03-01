@@ -1,0 +1,571 @@
+/* Reset und Grundeinstellungen */
+:root {
+    --primary-color: #4a90e2;
+    --background-color: #1a1a1a;
+    --surface-color: #2d2d2d;
+    --text-color: #e0e0e0;
+    --text-color-secondary: #a0a0a0;
+    --border-color: #404040;
+    --hover-color: #3a3a3a;
+    --success-color: #2ecc71;
+    --warning-color: #f1c40f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: 12px;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+/* Student Info Styling */
+.student-info {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+.student-info h2 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.student-info-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    background-color: var(--surface-color);
+}
+
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Hauptcontainer für die Diagrammkarte */
+.diagram-container {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+}
+
+.diagram-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Section Styling */
+.section {
+    background-color: var(--background-color);
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+}
+
+.section h2 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.section h2::before {
+    font-size: 1.6rem;
+}
+
+/* Section Icons */
+#grundstufe h2::before { content: '🚗'; }
+#aufbaustufe h2::before { content: '🛣️'; }
+#leistungsstufe h2::before { content: '🎯'; }
+#grundfahraufgaben h2::before { content: '⚙️'; }
+#reifestufe h2::before { content: '🎓'; }
+#sonderfahrten h2::before { content: '🌙'; }
+#situative_bausteine h2::before { content: '🔧'; }
+
+/* Subsection Styling */
+.subsection {
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.subsection:hover {
+    transform: translateY(-2px);
+}
+
+.subsection h3 {
+    color: #495057;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.subsection h3::before {
+    font-size: 1.2rem;
+}
+
+/* Subsection Icons */
+#einweisung h3::before { content: '🎮'; }
+#umweltfreundlich h3::before { content: '🌱'; }
+#schwierig h3::before { content: '⚡'; }
+#selbststaendig h3::before { content: '🚦'; }
+#verantwortung h3::before { content: '⭐'; }
+#testfahrt h3::before { content: '📝'; }
+#wiederholung h3::before { content: '🔄'; }
+#leistungsbewertung h3::before { content: '📊'; }
+#ueberlandfahrt h3::before { content: '🛣️'; }
+#autobahn h3::before { content: '🛤️'; }
+#nachtfahrt h3::before { content: '🌙'; }
+#fahrtechnische_vorbereitung h3::before { content: '🔍'; }
+
+/* Items List Styling */
+.items-list {
+    list-style: none;
+}
+
+.items-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+}
+
+.items-list li:hover {
+    background-color: var(--hover-color);
+    transform: translateX(4px);
+}
+
+/* Checkbox Styling */
+.items-list input[type="checkbox"] {
+    margin-right: 0.8rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.items-list label {
+    cursor: pointer;
+    flex: 1;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.items-list label::before {
+    font-size: 1rem;
+}
+
+/* Notes Dialog Styling */
+.note-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.note-content {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+.note-content textarea {
+    width: 100%;
+    min-height: 150px;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.note-dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.note-dialog-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.note-dialog-buttons button:first-child {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.note-dialog-buttons button:last-child {
+    background-color: var(--border-color);
+}
+
+.note-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.note-button:hover {
+    opacity: 1;
+}
+
+.note-preview {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-top: 0.5rem;
+    padding-left: 2rem;
+    font-style: italic;
+}
+
+.has-notes .note-button {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.item-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Item Icons */
+[id*="reifen"] label::before { content: '🛞'; }
+[id*="scheinwerfer"] label::before { content: '💡'; }
+[id*="licht"] label::before { content: '🔦'; }
+[id*="bremse"] label::before { content: '🛑'; }
+[id*="motor"] label::before { content: '⚙️'; }
+[id*="geschwindigkeit"] label::before { content: '⚡'; }
+[id*="abstand"] label::before { content: '↔️'; }
+[id*="parken"] label::before { content: '🅿️'; }
+[id*="wetter"] label::before { content: '🌤️'; }
+[id*="orientierung"] label::before { content: '🧭'; }
+[id*="spiegel"] label::before { content: '🪞'; }
+[id*="sicherung"] label::before { content: '🔒'; }
+
+/* Status Icon Styling */
+.status-icon {
+    margin-right: 0.8rem;
+    font-size: 0.9rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.status-icon.unchecked {
+    color: #dc3545;
+    background-color: #ffe0e3;
+    font-weight: bold;
+}
+
+.status-icon.checked {
+    color: #28a745;
+    background-color: #e0f5e9;
+}
+
+/* Item Status Styling */
+.item-unchecked {
+    background-color: rgba(241, 196, 15, 0.1);
+    border: 1px solid var(--warning-color);
+    transition: all 0.3s ease;
+}
+
+.item-unchecked:hover {
+    background-color: #fff0c0;
+    transform: scale(1.02);
+}
+
+.item-unchecked label {
+    font-weight: 700;
+    color: #856404;
+}
+
+.item-checked {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    background-color: rgba(46, 204, 113, 0.1);
+    border: 1px solid var(--success-color);
+}
+
+.item-checked label {
+    color: #6c757d;
+    text-decoration: line-through;
+}
+
+/* Priority List Styling */
+.priority-list {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+    position: relative;
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.priority-list:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(74, 144, 226, 0.3);
+}
+
+.priority-list h4 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.priority-list h4::before {
+    content: '📝';
+    font-size: 1.6rem;
+}
+
+.priority-list h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.priority-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.priority-list li {
+    background-color: var(--background-color);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    color: var(--text-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.priority-list li:hover {
+    background-color: var(--hover-color);
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+.priority-list li::before {
+    content: '⭐';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.priority-list li:before {
+    content: '⭐';
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* Progress Bar Styling */
+.progress-container {
+    margin: 1rem 0;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+    height: 0.5rem;
+    position: relative;
+}
+
+.progress-bar {
+    background-color: #1a4b8c;
+    height: 100%;
+    border-radius: 0.25rem;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    right: 0;
+    top: -1.5rem;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 8px;
+    }
+
+    .diagram-container {
+        padding: 1rem;
+    }
+
+    .diagram-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .subsection {
+        padding: 0.8rem;
+        margin: 0.8rem 0;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .section h2 {
+        font-size: 1.2rem;
+    }
+
+    .subsection h3 {
+        font-size: 1rem;
+    }
+
+    .items-list li {
+        padding: 0.7rem;
+    }
+
+    .form-group input {
+        padding: 0.7rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .student-info-form {
+        grid-template-columns: 1fr;
+    }
+}
