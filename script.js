@@ -12,28 +12,81 @@ const STORAGE_KEY = 'checklistStatus';
 const NOTES_STORAGE_KEY = 'itemNotes';
 
 // Funktion zum Laden der BVF Daten mit localStorage Integration
+// Konstanten für den Ladevorgang
+const MIN_LOADING_TIME = 1500; // Minimale Anzeigezeit in Millisekunden
+const LOADING_MESSAGES = [
+    'Initialisiere App...',
+    'Lade Daten...',
+    'Bereite Diagrammkarte vor...',
+    'Fast fertig...'
+];
+
+// Funktion zum Aktualisieren der Ladeanzeige
+function updateLoadingStatus(progress, messageIndex) {
+    const progressBar = document.getElementById('loading-progress');
+    const progressText = document.getElementById('progress-percentage');
+    const loadingMessage = document.getElementById('loading-message');
+
+    if (progressBar && progressText && loadingMessage) {
+        progressBar.style.width = `${progress}%`;
+        progressText.textContent = `${Math.round(progress)}%`;
+        loadingMessage.textContent = LOADING_MESSAGES[messageIndex];
+    }
+}
+
+// Modifizierte loadBVFData Funktion mit Ladefortschritt
 async function loadBVFData() {
+    const startTime = Date.now();
+    let currentProgress = 0;
+    let messageIndex = 0;
+
     try {
+        // Start des Ladevorgangs
+        updateLoadingStatus(currentProgress, messageIndex);
+
         // Importiere die Trainingsdaten
+        messageIndex = 1;
+        currentProgress = 25;
+        updateLoadingStatus(currentProgress, messageIndex);
         const { default: trainingDiagramData } = await import('./data.js');
         
-        // Lade den gespeicherten Status aus dem localStorage
+        // Lade den gespeicherten Status
+        messageIndex = 2;
+        currentProgress = 50;
+        updateLoadingStatus(currentProgress, messageIndex);
         const savedStatus = localStorage.getItem(STORAGE_KEY);
         const savedNotes = localStorage.getItem(NOTES_STORAGE_KEY);
         
         if (savedStatus || savedNotes) {
-            // Wenn gespeicherter Status oder Notizen existieren, wende sie auf die Daten an
+            currentProgress = 75;
+            updateLoadingStatus(currentProgress, messageIndex);
             const statusData = savedStatus ? JSON.parse(savedStatus) : {};
             const notesData = savedNotes ? JSON.parse(savedNotes) : {};
             applyStoredStatus(trainingDiagramData, statusData, notesData);
         } else {
-            // Wenn kein gespeicherter Status existiert, verwende die Standarddaten
             diagramData = JSON.parse(JSON.stringify(trainingDiagramData));
         }
-        
+
+        // Finale Phase
+        messageIndex = 3;
+        currentProgress = 90;
+        updateLoadingStatus(currentProgress, messageIndex);
+
+        // Stelle sicher, dass die minimale Ladezeit eingehalten wird
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime < MIN_LOADING_TIME) {
+            await new Promise(resolve => setTimeout(resolve, MIN_LOADING_TIME - elapsedTime));
+        }
+
+        // Abschluss des Ladevorgangs
+        currentProgress = 100;
+        updateLoadingStatus(currentProgress, messageIndex);
+
+        // Rendere die Diagrammkarte
         renderDiagramCard();
     } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
+        document.getElementById('loading-message').textContent = 'Fehler beim Laden der App';
     }
 }
 

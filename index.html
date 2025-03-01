@@ -35,7 +35,15 @@
         <div class="diagram-container">
             <!-- Dieser Bereich wird später durch JavaScript mit der interaktiven Diagrammkarte gefüllt -->
             <div class="diagram-placeholder">
-                <p>Diagrammkarte wird geladen...</p>
+                <div class="loading-container">
+                    <div class="loading-status">
+                        <p id="loading-message">Initialisiere App...</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="loading-progress"></div>
+                            <span class="progress-text" id="progress-percentage">0%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
